@@ -1,3 +1,3 @@
-# Vanilla JavaScript App
+# Trend Radar app
 
-This repo is used as a starter for a _very basic_ HTML web application using no front-end frameworks.
+This repo serves a static Azure web app featuring the public Zalando trend radar visualization.
