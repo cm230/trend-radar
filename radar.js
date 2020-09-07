@@ -116,8 +116,8 @@ function radar_visualization(config) {
       y: 15 * quadrants[quadrant].factor_y
     };
     var cartesian_max = {
-      x: rings[3].radius * quadrants[quadrant].factor_x,
-      y: rings[3].radius * quadrants[quadrant].factor_y
+      x: rings[2].radius * quadrants[quadrant].factor_x,
+      y: rings[2].radius * quadrants[quadrant].factor_y
     };
     return {
       clipx: function(d) {
