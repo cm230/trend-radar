@@ -156,7 +156,7 @@ function radar_visualization(config) {
   var segmented = new Array(4);
   for (var quadrant = 0; quadrant < 4; quadrant++) {
     segmented[quadrant] = new Array(4);
-    for (var ring = 0; ring < 4; ring++) {
+    for (var ring = 0; ring < 3; ring++) {
       segmented[quadrant][ring] = [];
     }
   }
