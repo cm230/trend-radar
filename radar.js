@@ -168,7 +168,7 @@ function radar_visualization(config) {
   // assign unique sequential id to each entry
   var id = 1;
   for (var quadrant of [2,3,1,0]) {
-    for (var ring = 0; ring < 4; ring++) {
+    for (var ring = 0; ring < 3; ring++) {
       var entries = segmented[quadrant][ring];
       entries.sort(function(a,b) { return a.label.localeCompare(b.label); })
       for (var i=0; i<entries.length; i++) {
@@ -294,7 +294,7 @@ function radar_visualization(config) {
         .text(config.quadrants[quadrant].name)
         .style("font-family", "Arial, Helvetica")
         .style("font-size", "18");
-      for (var ring = 0; ring < 4; ring++) {
+      for (var ring = 0; ring < 3; ring++) {
         legend.append("text")
           .attr("transform", legend_transform(quadrant, ring))
           .text(config.rings[ring].name)
