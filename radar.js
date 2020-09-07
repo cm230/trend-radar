@@ -1,4 +1,4 @@
-// The MIT License (MIT)
+﻿// The MIT License (MIT)
 
 // Copyright (c) 2017 Zalando SE
 
@@ -49,9 +49,8 @@ function radar_visualization(config) {
 
   const rings = [
     { radius: 130 },
-    { radius: 220 },
-    { radius: 310 },
-    { radius: 400 }
+    { radius: 260 },
+    { radius: 390 }
   ];
 
   const title_offset =
