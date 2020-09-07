@@ -24,27 +24,26 @@ radar_visualization({
     grid: "#bbb",
     inactive: "#ddd"
   },
-  title: "Bertelsmann Tech Radar — Sept/2020",
+  title: "Bertelsmann Tech Radar — Draft Mock-up",
   quadrants: [
-    { name: "Categories" },
-    { name: "Trends" },
-    { name: "Frameworks" },
-    { name: "Data Management" }
+    { name: "Cloud" },
+    { name: "Data" },
+    { name: "A.I." },
+    { name: "Others" }
   ],
   rings: [
-    { name: "ACT NOW", color: "#93c47d" },
-    { name: "TRIAL", color: "#93d2c2" },
-    { name: "INFORM STRATEGY", color: "#fbdb84" },
-    { name: "HOLD", color: "#efafa9" }
+    { name: "ACT NOW", color: "#002d64" },
+    { name: "INFORM", color: "#d5deec" },
+    { name: "WATCH", color: "#f2f2f2" }
   ],
   print_layout: true,
   // zoomed_quadrant: 0,
   //ENTRIES
   entries: [
       {
-        quadrant: 3,
-        ring: 0,
-        label: "AWS EMR",
+        quadrant: 0,
+        ring: 1,
+        label: "Proprietary AI languages",
         active: false,
         link: "../data_processing/aws_emr.html",
         moved: 0
