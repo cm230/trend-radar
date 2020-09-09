@@ -254,8 +254,8 @@ function radar_visualization(config) {
   }
 
   function legend_transform(quadrant, ring, index=null) {
-    var dx = ring < 2 ? 0 : 120;
-    //var dx = 0
+    //var dx = ring < 2 ? 0 : 120;
+    var dx = 0
     var dy = (index == null ? -16 : index * 12);
     //console.log (quadrant + " " + ring + " " + index) 
     if (ring % 2 === 1) {
