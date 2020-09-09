@@ -259,7 +259,7 @@ function radar_visualization(config) {
     var dy = (index == null ? -16 : index * 12);
     //console.log (quadrant + " " + ring + " " + index) 
    // if (ring % 2 === 1) {
-   dy = dy + 36 + segmented[quadrant][ring-1].length * 12;
+   // dy = dy + 36 + segmented[quadrant][ring-1].length * 12;
    // }
     if (ring == 1 || ring == 2) {
 	dy = dy + 36 + segmented[quadrant][ring-1].length * 12;
