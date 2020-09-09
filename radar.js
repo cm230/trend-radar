@@ -62,7 +62,8 @@ function radar_visualization(config) {
   const legend_offset = [
     { x: 450, y: 90 },
     { x: -675, y: 90 },
-    { x: -675, y: -310 },
+    { x: -1800, y: 90 },
+   // { x: -675, y: -310 },
     { x: 450, y: -310 }
   ];
 
@@ -281,7 +282,7 @@ function radar_visualization(config) {
       .text("▲ moved up     ▼ moved down")
       .attr("xml:space", "preserve")
       .style("font-family", "Arial, Helvetica")
-      .style("font-size", "12");
+      .style("font-size", "16");
 
     // legend
     var legend = radar.append("g");
