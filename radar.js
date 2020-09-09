@@ -281,7 +281,7 @@ function radar_visualization(config) {
       .text("▲ moved up     ▼ moved down")
       .attr("xml:space", "preserve")
       .style("font-family", "Arial, Helvetica")
-      .style("font-size", "10");
+      .style("font-size", "12");
 
     // legend
     var legend = radar.append("g");
@@ -293,13 +293,13 @@ function radar_visualization(config) {
         ))
         .text(config.quadrants[quadrant].name)
         .style("font-family", "Arial, Helvetica")
-        .style("font-size", "18");
+        .style("font-size", "24");
       for (var ring = 0; ring < 3; ring++) {
         legend.append("text")
           .attr("transform", legend_transform(quadrant, ring))
           .text(config.rings[ring].name)
           .style("font-family", "Arial, Helvetica")
-          .style("font-size", "12")
+          .style("font-size", "16")
           .style("font-weight", "bold");
         legend.selectAll(".legend" + quadrant + ring)
           .data(segmented[quadrant][ring])
