@@ -263,6 +263,10 @@ function radar_visualization(config) {
    // }
     if (ring == 1 || ring == 2) {
 	dy = dy + 48*ring + segmented[quadrant][ring-1].length * 16;
+       // hardcoding fix for demo, this will have to be fixed eventually
+       if (ring == 2 & quadrant = 3) {
+           dy = dy + 48;
+       }	
     }
     console.log ("quadrant is = " + quadrant + " and ring is = " + ring)
     console.log ("legend_offset[quadrant].x = " + legend_offset[quadrant].x)
