@@ -268,11 +268,11 @@ function radar_visualization(config) {
            dy = dy + 48;
        }	
     }
-    console.log ("quadrant is = " + quadrant + " and ring is = " + ring)
-    console.log ("legend_offset[quadrant].x = " + legend_offset[quadrant].x)
-    console.log ("legend_offset[quadrant].y = " + legend_offset[quadrant].y)
-    console.log ("index = " + index + " and dx = " + dx + " and dy = " + dy)
-    console.log ("-------------------------------------------------------")
+    //console.log ("quadrant is = " + quadrant + " and ring is = " + ring)
+    //console.log ("legend_offset[quadrant].x = " + legend_offset[quadrant].x)
+    //console.log ("legend_offset[quadrant].y = " + legend_offset[quadrant].y)
+    //console.log ("index = " + index + " and dx = " + dx + " and dy = " + dy)
+    //console.log ("-------------------------------------------------------")
     return translate(
       legend_offset[quadrant].x + dx,
       legend_offset[quadrant].y + dy
@@ -295,7 +295,7 @@ function radar_visualization(config) {
       .text("▲ moved up     ▼ moved down")
       .attr("xml:space", "preserve")
       .style("font-family", "Arial, Helvetica")
-      .style("font-size", "16");
+      .style("font-size", "14");
 
     // legend
     var legend = radar.append("g");
