@@ -262,7 +262,7 @@ function radar_visualization(config) {
    // dy = dy + 36 + segmented[quadrant][ring-1].length * 12;
    // }
     if (ring == 1 || ring == 2) {
-	dy = dy + 48*ring + segmented[quadrant][ring-1].length * 16;
+	dy = dy + 48*ring + segmented[quadrant][ring-1].length * 12;
        // hardcoding fix for demo, this will have to be fixed eventually
        if (ring == 2 && quadrant == 3) {
            dy = dy + 48;
