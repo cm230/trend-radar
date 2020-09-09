@@ -62,8 +62,7 @@ function radar_visualization(config) {
   const legend_offset = [
     { x: 450, y: 90 },
     { x: -675, y: 90 },
-    { x: -1800, y: 90 },
-   // { x: -675, y: -310 },
+    { x: -675, y: -310 },
     { x: 450, y: -310 }
   ];
 
@@ -255,11 +254,12 @@ function radar_visualization(config) {
   }
 
   function legend_transform(quadrant, ring, index=null) {
-    var dx = ring < 2 ? 0 : 120;
+    //var dx = ring < 2 ? 0 : 120;
+    var dx = 0
     var dy = (index == null ? -16 : index * 12);
-    if (ring % 2 === 1) {
-      dy = dy + 36 + segmented[quadrant][ring-1].length * 12;
-    }
+    //if (ring % 2 === 1) {
+    //  dy = dy + 36 + segmented[quadrant][ring-1].length * 12;
+    //}
     return translate(
       legend_offset[quadrant].x + dx,
       legend_offset[quadrant].y + dy
