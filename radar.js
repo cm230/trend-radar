@@ -23,6 +23,77 @@
 
 function radar_visualization(config) {
 
+  var CSV_entries = [];  
+
+  d3.csv('/20201014_Trend Database_v2.csv', function(d) {
+    //CSV_entries = d;
+     //console.log(d);
+  
+    for (var i = 0; i < d.length; i++) {
+     
+      var ring_value;
+      switch (d[i].TimeHorizon) {
+        case "Act Now":
+          ring_value = 0;
+          break;
+        case "Inform":
+          ring_value = 1;
+          break;  
+        case "Watch":
+          ring_value = 2;
+          break; 
+        default:
+          ring_value = 2;
+      }
+
+      var quadrant_value;
+      switch (d[i].Category) {
+        case "Cloud":
+          quadrant_value = 0;
+          break;
+        case "Data":
+          quadrant_value = 1;
+          break;  
+        case "AI":
+          quadrant_value = 2;
+          break; 
+        case "Others":
+          quadrant_value = 3;
+          break; 
+        default:
+          quadrant_value = 3;
+      }
+
+      var CSV_entry = {
+        ring: ring_value,
+        quadrant: quadrant_value,
+        label: d[i].Trend,
+        descript: d[i].Description,
+        active: "false"
+      };
+
+      CSV_entries.push(CSV_entry);
+ /*     CSV_entries.ring.push(d[i].TimeHorizon);
+      CSV_entries.quadrant.push(d[i].Category);
+      CSV_entries.label.push(d[i].Trend);
+      CSV_entries.descript.push(d[i].Description);*/
+/*      console.log(d[i].Category);
+      console.log(d[i].Trend);
+      console.log(d[i].TimeHorizon);
+      console.log(d[i].Description);*/
+   //   CSV_entries.push(d.);
+    }
+  //});
+
+  console.log(CSV_entries);
+  console.log(config.entries);
+   console.log(Object.keys(CSV_entries).length);
+  config.entries = CSV_entries;
+ // config.entries = CSV_entries;
+  console.log(config.entries.length);
+
+  //});
+
   // custom random number generator, to make random sequence reproducible
   // source: https://stackoverflow.com/questions/521295
   var seed = 42;
@@ -144,6 +215,7 @@ function radar_visualization(config) {
   // position each entry randomly in its segment
   for (var i = 0; i < config.entries.length; i++) {
     var entry = config.entries[i];
+    console.log(entry)
     entry.segment = segment(entry.quadrant, entry.ring);
     var point = entry.segment.random();
     entry.x = point.x;
@@ -190,10 +262,16 @@ function radar_visualization(config) {
     ].join(" ");
   }
 
+
   var svg = d3.select("svg#" + config.svg_id)
-    .style("background-color", config.colors.background)
+   // .style("background-color", config.colors.background)
+   // .style("background-color", "rgb(0, 0, 255, 0.05)")
+    .style("background-image", "url('TuD_Data_Store_HG_Website_1920x1080.jpg')")
+   // .style("background-image", "url('TechAndDataTransparentBackground.jpg')")
     .attr("width", config.width)
     .attr("height", config.height);
+
+  var opaquebox = svg.append()
 
   var radar = svg.append("g");
   if ("zoomed_quadrant" in config) {
@@ -209,12 +287,12 @@ function radar_visualization(config) {
     .attr("x1", 0).attr("y1", -400)
     .attr("x2", 0).attr("y2", 400)
     .style("stroke", config.colors.grid)
-    .style("stroke-width", 1);
+    .style("stroke-width", 5);
   grid.append("line")
     .attr("x1", -400).attr("y1", 0)
     .attr("x2", 400).attr("y2", 0)
     .style("stroke", config.colors.grid)
-    .style("stroke-width", 1);
+    .style("stroke-width", 5);
 
   // background color. Usage `.attr("filter", "url(#solid)")`
   // SOURCE: https://stackoverflow.com/a/31013492/2609980
@@ -238,7 +316,7 @@ function radar_visualization(config) {
       .attr("r", rings[i].radius)
       .style("fill", "none")
       .style("stroke", config.colors.grid)
-      .style("stroke-width", 1);
+      .style("stroke-width", 5);
     if (config.print_layout) {
       grid.append("text")
         .text(config.rings[i].name)
@@ -265,8 +343,17 @@ function radar_visualization(config) {
 	dy = dy + 48*ring + segmented[quadrant][ring-1].length * 12;
        // hardcoding fix for demo, this will have to be fixed eventually
        if (ring == 2 && quadrant == 3) {
-           dy = dy + 48;
+           dy = dy + 40;
        }	
+       if (ring == 2 && quadrant == 2) {
+           dy = dy + 68;
+       }  
+       if (ring == 2 && quadrant == 1) {
+           dy = dy + 74;
+       } 
+       if (ring == 2 && quadrant == 0) {
+           dy = dy + 50;
+       } 
     }
     //console.log ("quadrant is = " + quadrant + " and ring is = " + ring)
     //console.log ("legend_offset[quadrant].x = " + legend_offset[quadrant].x)
@@ -295,7 +382,8 @@ function radar_visualization(config) {
       .text("▲ moved up     ▼ moved down")
       .attr("xml:space", "preserve")
       .style("font-family", "Arial, Helvetica")
-      .style("font-size", "14");
+      .style("font-size", "14")
+      .style("fill", "#002d64");
 
     // legend
     var legend = radar.append("g");
@@ -307,14 +395,18 @@ function radar_visualization(config) {
         ))
         .text(config.quadrants[quadrant].name)
         .style("font-family", "Arial, Helvetica")
-        .style("font-size", "24");
+        .style("font-size", "36")
+        .style("font-weight", "bold")
+        //.style("background-color", "white")
+        .style("fill", "#002d64");
       for (var ring = 0; ring < 3; ring++) {
         legend.append("text")
           .attr("transform", legend_transform(quadrant, ring))
           .text(config.rings[ring].name)
           .style("font-family", "Arial, Helvetica")
           .style("font-size", "16")
-          .style("font-weight", "bold");
+          .style("font-weight", "bold")
+          .style("fill", "white");
         legend.selectAll(".legend" + quadrant + ring)
           .data(segmented[quadrant][ring])
           .enter()
@@ -325,6 +417,7 @@ function radar_visualization(config) {
               .text(function(d, i) { return d.id + ". " + d.label; })
               .style("font-family", "Arial, Helvetica")
               .style("font-size", "14")
+              .style("fill", "white")
               .on("mouseover", function(d) { showBubble(d); highlightLegendItem(d); })
               .on("mouseout", function(d) { hideBubble(d); unhighlightLegendItem(d); });
       }
@@ -349,7 +442,7 @@ function radar_visualization(config) {
     .style("fill", "#333");
   bubble.append("text")
     .style("font-family", "sans-serif")
-    .style("font-size", "12px")
+    .style("font-size", "13px")
     .style("fill", "#fff");
   bubble.append("path")
     .attr("d", "M 0,0 10,0 5,8 z")
@@ -358,20 +451,59 @@ function radar_visualization(config) {
   function showBubble(d) {
     if (d.active || config.print_layout) {
       var tooltip = d3.select("#bubble text")
-        .text(d.descript);
+       // .attr("dy", "0em").text("Trend Description").attr("dy", "1em").text(d.descript);
+       //.text(d.descript);
+       .text(d.descript)
+      // .html("Trend Description2:" + "<br\/>" + "<br\/>" + d.descript)
+      .call(wrap, 600)
+
+    
       var bbox = tooltip.node().getBBox();
       d3.select("#bubble")
+       // .attr("transform", translate(d.x - responsive_width / 2, d.y - 16))
         .attr("transform", translate(d.x - bbox.width / 2, d.y - 16))
         .style("opacity", 0.8);
       d3.select("#bubble rect")
         .attr("x", -5)
-        .attr("y", -bbox.height)
+        //.attr("y", -bbox.height)
+        .attr("y", -10)
+       // .attr("width", responsive_width + 10)
         .attr("width", bbox.width + 10)
         .attr("height", bbox.height + 4);
       d3.select("#bubble path")
         .attr("transform", translate(bbox.width / 2 - 5, 3));
+          
     }
   }
+
+  function wrap(text, width) {
+  text.each(function() {
+    var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 1, // ems
+        y = text.attr("y"),
+        //dy = parseFloat(text.attr("dy")),
+        dy = 0,
+        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+        console.log("dy = " + dy)
+    while (word = words.pop()) {
+      line.push(word);
+      tspan.text(line.join(" "));
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop();
+        tspan.text(line.join(" "));
+        line = [word];
+        console.log("BEFORE ++lineNumber * lineHeight = " + lineNumber * lineHeight);
+        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", lineHeight + dy + "em").text(word);
+        //tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+        console.log("AFTER ++lineNumber * lineHeight = " + lineNumber * lineHeight);
+      }
+    }
+  })}
+
 
   function hideBubble(d) {
     var bubble = d3.select("#bubble")
@@ -454,4 +586,6 @@ function radar_visualization(config) {
     .velocityDecay(0.19) // magic number (found by experimentation)
     .force("collision", d3.forceCollide().radius(12).strength(0.85))
     .on("tick", ticked);
+
+ });
 }

@@ -1,4 +1,6 @@
-﻿<html>
+﻿<!DOCTYPE html>
+
+<html>
 
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -12,32 +14,37 @@
 
 <body>
 
-<svg id="radar"></svg>
+<img src="Tech_Radar.jpg" alt="Bertelsmann Tech Radar" class="centered">
+
+<svg id="radar">
+</svg>
 
 <script>
 radar_visualization({
   svg_id: "radar",
-  width: 1450,
-  height: 1000,
+  width: window.innerWidth,
+  height: 900,
   colors: {
     background: "#fff",
     grid: "#bbb",
     inactive: "#ddd"
   },
-  title: "Bertelsmann Tech Radar — Draft Mock-up",
+  // title: "TEST Bertelsmann Tech Radar — Draft Mock-up",
   quadrants: [
-    { name: "Cloud" },
-    { name: "Data" },
+    { name: "CLOUD" },
+    { name: "DATA" },
     { name: "A.I." },
-    { name: "Others" }
+    { name: "OTHERS" }
   ],
   rings: [
     { name: "ACT NOW", color: "#002D64" },
     { name: "INFORM", color: "#415F8C" },
-    { name: "WATCH", color: "#008CA0" }
+    { name: "WATCH", color: "#ACBED8" }
   ],
   print_layout: true,
   // zoomed_quadrant: 0,
+
+  /*
   //ENTRIES
   entries: [
       {
@@ -222,6 +229,10 @@ radar_visualization({
         moved: 1
       },
   ]
+  */
+
   //ENTRIES
 });
 </script>
+
+</body>
