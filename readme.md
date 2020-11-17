@@ -3,7 +3,7 @@
 This repo serves a continuously deployed, static Azure web app featuring the Zalando trend radar visualization publicly available [here](https://github.com/zalando/tech-radar). See an example below.
 
 <p align="center">
-  <img src="https://github.com/cm230/trend-radar/blob/master/Tech Radar.PNG"/>
+  <img src="https://github.com/cm230/trend-radar/blob/master/Tech_Radar.JPG"/>
 </p>
 
 The following license regulation applies.
