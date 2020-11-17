@@ -64,12 +64,13 @@ function radar_visualization(config) {
           quadrant_value = 3;
       }
 
-      var CSV_entry = {
+       var CSV_entry = {
         ring: ring_value,
         quadrant: quadrant_value,
         label: d[i].Trend,
         descript: d[i].Description,
-        active: "false"
+        active: "false",
+        moved: d[i].Moved
       };
 
       CSV_entries.push(CSV_entry);
@@ -85,12 +86,12 @@ function radar_visualization(config) {
     }
   //});
 
-  console.log(CSV_entries);
-  console.log(config.entries);
-   console.log(Object.keys(CSV_entries).length);
+  //console.log(CSV_entries);
+  //console.log(config.entries);
+   //console.log(Object.keys(CSV_entries).length);
   config.entries = CSV_entries;
  // config.entries = CSV_entries;
-  console.log(config.entries.length);
+  //console.log(config.entries.length);
 
   //});
 
@@ -343,7 +344,7 @@ function radar_visualization(config) {
 	dy = dy + 48*ring + segmented[quadrant][ring-1].length * 12;
        // hardcoding fix for demo, this will have to be fixed eventually
        if (ring == 2 && quadrant == 3) {
-           dy = dy + 40;
+           dy = dy + 32;
        }	
        if (ring == 2 && quadrant == 2) {
            dy = dy + 68;

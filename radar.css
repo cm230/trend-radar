@@ -46,3 +46,11 @@ td {
 	width: 50%;
 }
 
+.center_text {
+	text-align: right;
+	color: #002D64;
+	font-family: 'Source Sans Pro', arial, helvetica, sans-serif;
+	font-size: 12;
+	font-weight: bold;
+}
+
