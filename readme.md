@@ -1,10 +1,10 @@
 # Trend Radar web app
 
-This repo serves a continuously deployed, static Azure web app featuring the Zalando trend radar visualization publicly available [here](https://github.com/zalando/tech-radar). See an example below.
+This repo serves a continuously deployed, static Azure web app featuring the Zalando trend radar visualization publicly available [here](https://github.com/zalando/tech-radar). 
 
-<p align="center">
+<!--<p align="center">
   <img src="https://github.com/cm230/trend-radar/blob/master/Tech_Radar.JPG"/>
-</p>
+</p>-->
 
 The following license regulation applies.
 
