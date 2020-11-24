@@ -1,6 +1,6 @@
-# Trend Radar web app
+# Bertelsmann Tech Radar web app
 
-This repo serves a continuously deployed, static Azure web app featuring the Zalando trend radar visualization publicly available [here](https://github.com/zalando/tech-radar). 
+This repo serves a continuously deployed, static Azure web app featuring the Zalando trend radar visualization publicly available [here](https://github.com/zalando/tech-radar) adapted for the Bertelsmann tech radar. 
 
 <p align="center">
   <img src="https://github.com/cm230/trend-radar/blob/master/Sample.png"/>
