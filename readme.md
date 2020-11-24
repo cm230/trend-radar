@@ -6,10 +6,9 @@ This repo serves a continuously deployed, static Azure web app featuring the Zal
   <img src="https://github.com/cm230/trend-radar/blob/master/Sample.png"/>
 </p>
 
-The following license regulation applies.
+The following license regulation applies:
 
 The MIT License (MIT)
-
 Copyright (c) 2017 Zalando SE
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
