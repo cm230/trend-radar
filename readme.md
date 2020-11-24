@@ -8,7 +8,7 @@ This repo serves a continuously deployed, static Azure web app featuring the Zal
 
 The following license regulation applies:
 
-´´´The MIT License (MIT)
+´´´´´´The MIT License (MIT)
 Copyright (c) 2017 Zalando SE
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,4 +27,4 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.´´´
+THE SOFTWARE.´´´´´´
